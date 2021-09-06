@@ -1,0 +1,15 @@
+.button{
+  float: right;
+  margin-top: 1rem;
+  width: 6rem;
+  height: 1.8rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 1ms;
+}
+
+.button:hover{
+  transform: scale(1.1);
+}
