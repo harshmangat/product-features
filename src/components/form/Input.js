@@ -1,11 +1,13 @@
-import React, { Fragment } from "react";
+
 import classes from "./Input.module.css";
 
-const Input = React.forwardRef((props, ref) => {
+const Input = (props) => {
+  const {onChange, value} = props;
   return (
-    <Fragment>
+    
       <textarea
-        ref={ref}
+      value= {value}
+        onChange={(e)=>onChange(e.target.value)}
         type="text"
         className={classes.input}
         cols="20"
@@ -13,9 +15,9 @@ const Input = React.forwardRef((props, ref) => {
         maxLength="180"
         required
         placeholder="Type your review!"
-      ></textarea>
-    </Fragment>
+      />
+    
   );
-});
+};
 
 export default Input;

@@ -2,24 +2,26 @@ import Card from "../UI/Card";
 import classes from "./Post.module.css";
 
 const Post = (props) => {
-  const Dummy = {
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer too",
-  };
+  let newDate = new Date();
+  let date = newDate.getDate();
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
   return (
     <section className={classes.post}>
-      {props.features.map(feature=>(
-        <Card
-        >
-        <p>{feature.text}</p>
-        <span>Mon 2021-09-06</span>
+      <Card>
+        <p>{props.title}</p>
+        <div>
+          <span>
+            {year}-{month < 10 ? `0${month}` : `${month}`}-{date}
+          </span>
+        </div>
         <div className={classes.buttons}>
           <button>👍</button>
           <b>10</b>
           <button>👎</button>
         </div>
       </Card>
-      ))}
-      
     </section>
   );
 };

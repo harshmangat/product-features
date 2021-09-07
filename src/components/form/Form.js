@@ -1,28 +1,26 @@
-import React, {useState, useRef} from 'react';
-import Button from '../UI/Button';
-import classes from './Form.module.css';
-import Input from './Input';
+import React, { useState } from "react";
+import Button from "../UI/Button";
+import classes from "./Form.module.css";
+import Input from "./Input";
+import { v4 as uuid } from "uuid";
 
 const Form = (props) => {
-  // const [enteredInput, setEnteredInput] = useState('');
-  const inputRef = useRef();
-  
-  // const inputChangeHandler = (event)=>{
-  //   setEnteredInput(event.target.value);
-    // console.log(enteredInput);
-  // }
+  const { onNewPost } = props;
 
-  const submitHandler = (event)=>{
-    event.preventDefault();
-    const enteredInput= inputRef.current.value
-    // setEnteredInput(inputChangeHandler)
-    props.onAddNewPost(enteredInput.text);
-    
-  }
+  const [enteredInput, setEnteredInput] = useState(props.title);
+  const submitHandler = (e) => {
+    e.preventDefault();
 
-  return(
+    const newPost = {
+      title: enteredInput,
+      id: uuid(),
+    };
+    onNewPost(newPost);
+    setEnteredInput('');
+  };
+  return (
     <form className={classes.form} onSubmit={submitHandler}>
-     <Input ref={inputRef} value={props.text} text={props.text}/>
+      <Input onChange={setEnteredInput} value={enteredInput} />
       <Button />
     </form>
   );

@@ -1,18 +1,16 @@
-import React from "react";
-import { Fragment } from "react";
-import {useState} from "react";
+import React, { useState } from "react";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Post from "./components/main/Post";
 
-function App() {
-  const [featuresPost, setFeaturesPost]= useState([]);
+function App(props) {
+  const [data, setData] = useState([]);
 
-  const addFeaturePostHandler = (newFeature)=>{
-    setFeaturesPost((prevFeaturePost)=>{
-      return [...prevFeaturePost,{feature: newFeature}]
-    })
-  }
+  const addNewPostHandler = (postData) => {
+    setData((prevData) => {
+      return [postData, ...prevData];
+    });
+  };
   return (
     <>
       <ul className="box-area">
@@ -25,9 +23,9 @@ function App() {
       </ul>
       <div className="form-box">
         <Header />
-        <Form onAddNewPost={addFeaturePostHandler}/>
-        <Post features={featuresPost}/>
-        
+        <Form onNewPost={addNewPostHandler} />
+        {data.length > 0 &&
+          data.map((post) => <Post key={post.id} title={post.title} />)}
       </div>
     </>
   );
