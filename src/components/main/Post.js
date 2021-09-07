@@ -7,8 +7,10 @@ const Post = (props) => {
   };
   return (
     <section className={classes.post}>
-      <Card>
-        <p>{Dummy.text}</p>
+      {props.features.map(feature=>(
+        <Card
+        >
+        <p>{feature.text}</p>
         <span>Mon 2021-09-06</span>
         <div className={classes.buttons}>
           <button>👍</button>
@@ -16,6 +18,8 @@ const Post = (props) => {
           <button>👎</button>
         </div>
       </Card>
+      ))}
+      
     </section>
   );
 };

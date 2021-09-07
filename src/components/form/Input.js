@@ -1,10 +1,12 @@
-import { Fragment } from "react";
+import React, { Fragment } from "react";
 import classes from "./Input.module.css";
 
-const Input = () => {
+const Input = React.forwardRef((props, ref) => {
   return (
     <Fragment>
       <textarea
+        ref={ref}
+        type="text"
         className={classes.input}
         cols="20"
         rows="3"
@@ -14,6 +16,6 @@ const Input = () => {
       ></textarea>
     </Fragment>
   );
-};
+});
 
 export default Input;

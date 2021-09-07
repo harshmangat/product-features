@@ -32,8 +32,10 @@
   margin: 0 1.1rem;
   background:transparent;
   border: none;
-  cursor: pointer;
+  cursor: pointer;  
 }
+
+
 
 b {
   color: #c9c5c5;
