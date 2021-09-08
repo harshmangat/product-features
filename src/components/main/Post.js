@@ -10,7 +10,7 @@ const Post = (props) => {
   return (
     <section className={classes.post}>
       <Card>
-        <p>{props.title}</p>
+        <p className={classes.para}>{props.title}</p>
         <div>
           <span>
             {year}-{month < 10 ? `0${month}` : `${month}`}-{date}

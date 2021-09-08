@@ -6,20 +6,16 @@
   animation: post-appear 1s ease-out forwards;
 }
 
-.post p{
+.para{
   margin-top: -0.1rem;
   display: flex;
   
   margin-left: 1.1rem;
   display: inline-block;
-  flex-wrap: wrap;
+  word-wrap: break-word;
+  margin-bottom: 0.5rem;
   width: 91%;
 }
-/* .meals ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-} */
 
 .post span{
   float: right;
