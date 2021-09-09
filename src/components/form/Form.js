@@ -6,6 +6,8 @@ import { v4 as uuid } from "uuid";
 
 const Form = (props) => {
   const { onNewPost } = props;
+  
+  
 
   const [enteredInput, setEnteredInput] = useState(props.title);
   const submitHandler = (e) => {

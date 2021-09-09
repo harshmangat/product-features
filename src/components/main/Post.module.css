@@ -13,14 +13,14 @@
   margin-left: 1.1rem;
   display: inline-block;
   word-wrap: break-word;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   width: 91%;
 }
 
 .post span{
   float: right;
   margin-right: 0.8rem;
-  font-weight: 600;
+  font-weight: normal;
   color: #e67145;
 }
 
@@ -35,6 +35,7 @@
 
 b {
   color: #c9c5c5;
+  font-size: small;
 }
 
 @keyframes post-appear {

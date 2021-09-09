@@ -7,9 +7,11 @@
   outline: none;
   border: none;
   cursor: pointer;
-  transition: all 1ms;
+  transition: all 1s;
 }
 
 .button:hover{
   transform: scale(1.1);
+  background:  #e67145;
+  color: #f5f0f0;
 }
