@@ -1,16 +1,33 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Post from "./components/main/Post";
 
+const reducer = (state, action) => {
+  if (action.type === "add") {
+    return { [action.data.id]: action.data, ...state };
+  } else if (action.type === "upvote") {
+    const post = state[action.postId];
+    post.votes += 1;
+    return { ...state, [action.postId]: post };
+  } else if (action.type === "downvote") {
+    const post = state[action.postId];
+    post.votes -= 1;
+    return { ...state, [action.postId]: post };
+  } else {
+    throw new Error("Error action type");
+  }
+};
+
 function App(props) {
-  const [data, setData] = useState([]);
+  const [data, dispatch] = useReducer(reducer, {});
 
   const addNewPostHandler = (postData) => {
-    setData((prevData) => {
-      return [postData, ...prevData];
-    });
+    dispatch({ type: "add", data: postData });
   };
+
+  const posts = Object.values(data);
+
   return (
     <>
       <ul className="box-area">
@@ -24,8 +41,12 @@ function App(props) {
       <div className="form-box">
         <Header />
         <Form onNewPost={addNewPostHandler} />
-        {data.length > 0 &&
-          data.map((post) => <Post key={post.id} title={post.title} />)}
+        {posts.length > 0 &&
+          posts
+            .sort((prev, next) => (prev.votes > next.votes ? -1 : 1))
+            .map((post) => (
+              <Post key={post.id} data={post} dispatch={dispatch} />
+            ))}
       </div>
     </>
   );
