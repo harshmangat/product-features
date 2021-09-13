@@ -17,6 +17,27 @@ const reducer = (state, action) => {
   } else {
     throw new Error("Error action type");
   }
+  
+
+
+  // switch (action.type) {
+  //   case 'add': {
+  //  return { [action.data.id]: action.data, ...state };
+  // }
+  //  case 'upvote': {
+  //  const post = state[action.postId];
+  //   post.votes += 1;
+  // return { ...state, [action.postId]: post };
+  //  }
+  // case 'downvote': {
+  //    const post = state[action.postId];
+  //    post.votes -= 1;
+  //    return { ...state, [action.postId]: post };
+  //  }
+  //  default:
+  //    throw new Error('Unknown action type');
+  // }
+  
 };
 
 function App(props) {
