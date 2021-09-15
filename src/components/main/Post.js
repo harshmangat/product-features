@@ -13,7 +13,7 @@ import classes from "./Post.module.css";
 // };
 
 const Post = (props) => {
-  let { dispatch, data } = props;
+  let { dispatch, data, onShowConfirm } = props;
   let newDate = new Date();
   let date = newDate.getDate();
   let month = newDate.getMonth() + 1;
@@ -34,7 +34,8 @@ const Post = (props) => {
           </button>
           <b>{data.votes}</b>
           <button
-            onClick={() => dispatch({ type: "downvote", postId: data.id })}
+            onClick={() => dispatch({ type: "downvote", postId: data.id }), onShowConfirm}
+            
           >
             👎
           </button>
