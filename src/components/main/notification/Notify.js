@@ -2,13 +2,19 @@ import Modal from "../../UI/Modal";
 
 import classes from "./Notify.module.css";
 
-const Cart = (props) => {
-  let {onClose} = props
+const Notify = (props) => {
+  let { onClose, dispatch, data } = props;
   return (
-    <Modal onClose={props.onClose} >
-        <h5>Are You Sure Wanna Dislike It?</h5>
+    <Modal onClose={props.onClose}>
+      <h5>Are You Sure Wanna Dislike It?</h5>
       <div className={classes.actions}>
-        <button className={classes["button--alt"]} onClick={onClose}>
+        <button
+          className={classes["button--alt"]}
+          onClick={() => {
+            dispatch({ type: "downvote", postId: data.id });
+            onClose();
+          }}
+        >
           Yes
         </button>
       </div>
@@ -16,4 +22,4 @@ const Cart = (props) => {
   );
 };
 
-export default Cart;
+export default Notify;

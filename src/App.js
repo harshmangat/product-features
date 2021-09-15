@@ -2,7 +2,7 @@ import React, { useReducer, useState } from "react";
 import Form from "./components/form/Form";
 import Header from "./components/header/Header";
 import Post from "./components/main/Post";
-import Notify from "./components/main/notification/Notify"
+import Notify from "./components/main/notification/Notify";
 
 const reducer = (state, action) => {
   if (action.type === "add") {
@@ -18,12 +18,11 @@ const reducer = (state, action) => {
   } else {
     throw new Error("Error action type");
   }
-  
 };
 
 function App(props) {
   const [data, dispatch] = useReducer(reducer, {});
-  const [confirmationIsShown, setConfirmation] = useState(false);
+  const [dataToConfirm, setDataToConfirm] = useState(null);
 
   const addNewPostHandler = (postData) => {
     dispatch({ type: "add", data: postData });
@@ -31,14 +30,13 @@ function App(props) {
 
   const posts = Object.values(data);
 
-const showConfirmHandler = () =>{
-  setConfirmation(true);
-}
+  const showConfirmHandler = (data) => {
+    setDataToConfirm(data);
+  };
 
-const hideConfirmHandler = ()=>{
-  setConfirmation(false);
-}
-
+  const hideConfirmHandler = () => {
+    setDataToConfirm(null);
+  };
 
   return (
     <>
@@ -51,14 +49,25 @@ const hideConfirmHandler = ()=>{
         <li></li>
       </ul>
       <div className="form-box">
-      {confirmationIsShown && <Notify onClose={hideConfirmHandler}/>}
+        {dataToConfirm && (
+          <Notify
+            onClose={hideConfirmHandler}
+            data={dataToConfirm}
+            dispatch={dispatch}
+          />
+        )}
         <Header />
         <Form onNewPost={addNewPostHandler} />
         {posts.length > 0 &&
           posts
             .sort((prev, next) => (prev.votes > next.votes ? -1 : 1))
             .map((post) => (
-              <Post key={post.id} data={post} dispatch={dispatch} onShowConfirm={showConfirmHandler}/>
+              <Post
+                key={post.id}
+                data={post}
+                dispatch={dispatch}
+                onShowConfirm={() => showConfirmHandler(post)}
+              />
             ))}
       </div>
     </>

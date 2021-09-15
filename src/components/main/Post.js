@@ -33,12 +33,7 @@ const Post = (props) => {
             👍
           </button>
           <b>{data.votes}</b>
-          <button
-            onClick={() => dispatch({ type: "downvote", postId: data.id }), onShowConfirm}
-            
-          >
-            👎
-          </button>
+          <button onClick={onShowConfirm}>👎</button>
         </div>
       </Card>
     </section>
