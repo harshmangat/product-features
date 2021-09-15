@@ -1,4 +1,6 @@
-
+h5 {
+  text-align: center;
+}
 
 
 
@@ -10,8 +12,8 @@
 .actions button {
   font: inherit;
   cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #8a2b06;
+  background-color:#f5f0f0;
+  border: 1px solid #e67145;
   padding: 0.5rem 2rem;
   border-radius: 25px;
   margin-left: 1rem;
@@ -19,16 +21,16 @@
 
 .actions button:hover,
 .actions button:active {
-  background-color: #5a1a01;
-  border-color: #5a1a01;
+  background-color: #e67145;
+  border-color: #e67145;
   color: white;
 }
 
 .actions .button--alt {
-  color: #8a2b06;
+  color: #e67145;
 }
 
-.actions .button {
+/* .actions .button {
   background-color: #8a2b06;
   color: white;
-}
+} */

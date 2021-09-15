@@ -11,26 +11,23 @@
 .modal {
   position: fixed;
   top: 30vh;
-  left: 5%;
-  width: 90%;
-  background-color: rgba(195, 208, 241, 0.7);
+  left: 25%;
+  width: 50%;
+  background-color:  rgba(28, 39, 50, 0.9);
   padding: 1rem;
-  border-radius: 14px;
+  border-radius: 5px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
   z-index: 30;
   animation: slide-down 300ms ease-out forwards;
-  color: #0e0c0c;
+  color: #999;
 }
 
 @media (min-width: 768px) {
-  /* .modal {
-    width: 40rem;
-    left: calc(50% - 20rem);
-  } */
-  .modal{
+  .modal {
     width: 25rem;
     left: calc(50% - 14rem);
   }
+  
 }
 
 

@@ -6,7 +6,7 @@ const Cart = (props) => {
   let {onClose} = props
   return (
     <Modal onClose={props.onClose} >
-        <h2>Are You Sure Wanna Dislike It?</h2>
+        <h5>Are You Sure Wanna Dislike It?</h5>
       <div className={classes.actions}>
         <button className={classes["button--alt"]} onClick={onClose}>
           Yes
