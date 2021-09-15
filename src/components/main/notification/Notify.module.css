@@ -2,21 +2,20 @@ h5 {
   text-align: center;
 }
 
-
-
 .actions {
   text-align: center;
   margin-top: 0.6rem;
 }
 
 .actions button {
-  font: inherit;
+  font: normal;
   cursor: pointer;
   background-color:#f5f0f0;
-  border: 1px solid #e67145;
-  padding: 0.5rem 2rem;
-  border-radius: 25px;
+  border: 1px solid #f5f0f0;
+  padding: 0.3rem 1.4rem;
+  border-radius: 5px;
   margin-left: 1rem;
+  transition: all 1s;
 }
 
 .actions button:hover,
@@ -24,13 +23,10 @@ h5 {
   background-color: #e67145;
   border-color: #e67145;
   color: white;
+  transform: scale(1.1);
 }
 
 .actions .button--alt {
-  color: #e67145;
+  color: #1b1a19;
 }
 
-/* .actions .button {
-  background-color: #8a2b06;
-  color: white;
-} */
